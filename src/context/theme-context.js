@@ -16,6 +16,7 @@ export const ThemeProvider = ({children}) => {
     // save theme settings to local storage
     useEffect(() => {
         localStorage.setItem('themeSettings', JSON.stringify(themeState))
+         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [themeState.primary, themeState.background])
 
 

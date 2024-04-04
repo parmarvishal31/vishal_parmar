@@ -44,6 +44,7 @@ const App = () => {
 
     // cleanup function
     return () => clearInterval(checkYPosition);
+     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [siteYPostion])
 
   
