@@ -10,12 +10,26 @@ import "swiper/css/autoplay"
 import { Pagination } from "swiper";
 
 
-import testimonials from './data'
 import Testimonial from "./Testimonial";
 import './testimonials.css'
+import { useEffect, useState } from "react";
 
 
 const Testimonials = () => {
+  const [data ,setData] = useState([])
+  console.log("data: ", data);
+  useEffect(()=>{
+    fetch('https://script.google.com/macros/s/AKfycbwZiFktFYcejaL6MGYdfobbi5ngqDCP4suMsQiiXbPKVdolgRh6Cb6xpEhRwWtizDhX/exec')
+  .then(response => response.json())
+  .then(data => {
+    // Process the fetched data
+    setData(data.data);
+  })
+  .catch(error => {
+    console.error('Error fetching data:', error);
+  });
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  },[])
   return (
     <section id="testimonials">
       <h2>What My Clients Say</h2>
@@ -37,8 +51,8 @@ const Testimonials = () => {
         autoplay={true}
         className="mySwiper"
       >
-        {
-          testimonials.map(testimonial => (
+        {data.length > 0 &&
+          data.map(testimonial => (
             <SwiperSlide key={testimonial.id}>
               <Testimonial testimonial={testimonial}/>
             </SwiperSlide>
