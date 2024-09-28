@@ -17,7 +17,6 @@ import { useEffect, useState } from "react";
 
 const Testimonials = () => {
   const [data ,setData] = useState([])
-  console.log("data: ", data);
   useEffect(()=>{
     fetch('https://script.google.com/macros/s/AKfycbwZiFktFYcejaL6MGYdfobbi5ngqDCP4suMsQiiXbPKVdolgRh6Cb6xpEhRwWtizDhX/exec')
   .then(response => response.json())

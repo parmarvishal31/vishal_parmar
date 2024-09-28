@@ -2,7 +2,6 @@ import Card from "../../components/Card"
 import md5 from "md5";
 
 const Testimonial = ({testimonial}) => {
-  console.log("testimonial: ", testimonial.pic);
   if (!testimonial || !testimonial.email || !testimonial.name || !testimonial.Review || !testimonial.profession) {
     // If testimonial object or its properties are not defined, return null
     return null;
